@@ -1,0 +1,21 @@
+<div>
+  <button type="button" (click)="onRemoveButtonClicked()">Remove</button>
+  <button type="button" (click)="onSeeForecastButtonClicked()">
+    See forecast
+  </button>
+  <p>{{ favorite.location.city }} , {{ favorite.location.country }}</p>
+  <p>Last Updated:{{ favorite.lastUpdated | date: "M/d/yy, h:mm a" }}</p>
+  <p>
+    it is currently
+    {{ favorite.currentCondition.IsDayTime ? "day time" : "night time" }}
+  </p>
+  <img
+    [src]="favorite.currentCondition.WeatherIcon | accuweatherIcon"
+    [alt]="favorite.currentCondition.WeatherIcon"
+  />
+  <p>{{ favorite.currentCondition.WeatherText }}</p>
+
+  <p class="degree">
+    {{ favorite.currentCondition.Temperature.Metric.Value }}
+  </p>
+</div>

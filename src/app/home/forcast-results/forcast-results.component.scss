@@ -1,0 +1,8 @@
+.heart {
+}
+
+.heart::after {
+  content: "♥";
+  color: red;
+  font-size: 2rem;
+}

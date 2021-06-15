@@ -1,0 +1,16 @@
+<ng-container *ngIf="forcasts !== null">
+  <h4 class="heart" (click)="addToFavorites()"></h4>
+  <h4>{{ forcasts.Location.city + ", " + forcasts.Location.country }}</h4>
+  <h6>Description: {{ forcasts.Headline.Text }}</h6>
+  <p>
+    Period: from {{ forcasts.DailyForecasts[0].Date | date: "MMM d, y" }} - to
+    {{
+      forcasts.DailyForecasts[forcasts.DailyForecasts.length - 1].Date
+        | date: "MMM d, y"
+    }}
+  </p>
+  <app-one-day-forcast
+    *ngFor="let forcast of forcasts.DailyForecasts"
+    [forcast]="forcast"
+  ></app-one-day-forcast>
+</ng-container>

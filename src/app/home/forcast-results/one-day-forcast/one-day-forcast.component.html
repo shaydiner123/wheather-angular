@@ -1,0 +1,16 @@
+<div>
+  <button type="button" (click)="switchPeriod()">
+    Switch to {{ isDay ? "night" : "day" }}
+  </button>
+  <p>{{ forcast.Date | date: "M/d/yy, h:mm a" }}</p>
+  <img
+    [src]="twelveHoursToShow.Icon | accuweatherIcon"
+    [alt]="forcast.Day.Icon"
+  />
+  <p>{{ twelveHoursToShow.IconPhrase }}</p>
+
+  <p>
+    <span class="degree">{{ forcast.Temperature.Minimum.Value }}</span
+    >-<span class="degree">{{ forcast.Temperature.Maximum.Value }}</span>
+  </p>
+</div>

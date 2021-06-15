@@ -1,0 +1,25 @@
+<div>
+  <label for="location">Location : </label>
+  <input
+    type="text"
+    name="location"
+    id="location"
+    placeholder="Search location"
+    [(ngModel)]="searchInpuValue"
+    (input)="onLocationInput($event)"
+  /><br />
+</div>
+
+<div class="loader" *ngIf="isSearching">Searching...</div>
+
+<div class="error" *ngIf="errorMessage !== undefined">{{ errorMessage }}</div>
+<div class="suggestions">
+  <ng-container *ngIf="isShowSuugestions">
+    <ul>
+      <li *ngFor="let res of results" (click)="selectLocationSuggestion(res)">
+        {{ res.LocalizedName + " , " + res.Country.LocalizedName }}
+      </li>
+    </ul>
+  </ng-container>
+  <div *ngIf="isShowNoLocationsExistMessage">No locations found</div>
+</div>
